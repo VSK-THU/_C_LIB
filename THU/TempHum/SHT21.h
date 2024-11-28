@@ -22,24 +22,24 @@ typedef enum
 {
     CMD_TRIG_T_HOLD     = 0xE3,
     CMD_TRIG_RH_HOLD    = 0xE5,
-    CMD_WR_USER_REG     = 0xE6,
-    CMD_RD_USER_REG     = 0xE7,
     CMD_TRIG_T          = 0xF3,
     CMD_TRIG_RH         = 0xF5,
+    CMD_WR_USER_REG     = 0xE6,
+    CMD_RD_USER_REG     = 0xE7,
     CMD_SOFT_RES        = 0xFE
 }TYPE_SHT21_CMD;
 
 typedef enum
 {
     MODE_RH12_T14_BIT   = 0x00,
-    MODE_RH08_T12_BIT   = 0x40,
+    MODE_RH08_T12_BIT   = 0x01,
     MODE_RH10_T13_BIT   = 0x80,
-    MODE_RH11_T11_BIT   = 0xC0,
-    BAT_STATUS_MASK     = 0x20,
-    EN_OC_HEATER        = 0x02,
+    MODE_RH11_T11_BIT   = 0x81,
+    BAT_STATUS_MASK     = 0x40,
+    EN_OC_HEATER        = 0x04,
     DIS_OC_HEATER       = 0x00,
-    DIS_OTP_RELOAD      = 0x01,
-    EN_OTP_RELOAD       = 0x00
+    DIS_OTP_RELOAD      = 0x02,
+    EN_OTP_RELOAD       = 0x00,
 }TYPE_USER_REG;
 
 typedef enum
