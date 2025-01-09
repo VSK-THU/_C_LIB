@@ -57,6 +57,6 @@ typedef enum
 extern void initSHT21(TYPE_USER_REG mode);
 extern void wrSHT21(TYPE_SHT21_CMD cmd);
 extern void rdSHT21(uint8_t *pntData);
-extern void rdSHT21_user(TYPE_USER_REG *pntData);
+extern void rdSHT21_PID(uint8_t *pntData);
 
 #endif  //SHT21_H

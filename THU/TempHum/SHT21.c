@@ -64,6 +64,7 @@ void rdSHT21_user(TYPE_USER_REG *pntData)
     while(SSP1CON2bits.ACKSTAT){;}          // ACK from sensor
     WriteI2C1(CMD_RD_USER_REG);             // 
     while(SSP1CON2bits.ACKSTAT){;}          // ACK from sensor
+// restart ???
     WriteI2C1(SHT21_RD);
     while(SSP1CON2bits.ACKSTAT){;}          // ACK from sensor
     *pntData = ReadI2C1();                  //

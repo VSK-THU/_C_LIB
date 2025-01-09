@@ -66,11 +66,6 @@ typedef enum {  // 4.3.4 Register 0xF4 ctrl_meas
 
 
 unsigned char initBMP280(void);
-//extern void initMPU6000(TYPE_CFG_ACC cfgAcc, TYPE_CFG_GYRO cfgGyro,
-//                        TYPE_SMPLRT_DIV smplRT, TYPE_CONFIG lowPass);
-//extern void enMPU6000ir(TYPE_INT_EN inEn, TYPE_INT_PIN_CFG pinCfg);
-//
-//extern void readACC_X(unsigned char *pntData );
-//extern void readACC_Y(unsigned char *pntData );
+
 
 #endif	/* BMP_280_H */
