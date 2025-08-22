@@ -1,6 +1,8 @@
 /*!
  *  @LTR390UV.h
  *
+ *  This is a modified version of Adafruit_LTR390.h Arduino Library
+ * 
  * 	I2C Driver for LTR390 UV and light sensor
  *
  * 	This is a library for the Adafruit LTR390 breakout:
@@ -39,13 +41,27 @@ typedef enum {
   LTR390_THRESH_LOW     = 0x24  ///< Lower threshold, low byte
 } ltr390_reg_t;
 
-#define LTT390_PID  0xB2
+#define LTT390_PID  0xB0        // high nibble only
 
-/*!    @brief  Whether we are measuring ambient or UV light  */
+/*!    @brief  sensor control register */
 typedef enum {
-  LTR390_MODE_ALS,
-  LTR390_MODE_UVS,
-} ltr390_mode_t;
+  LTR390_CTRL_EN    = 0x02,
+  LTR390_CTRL_UVS   = 0x08,
+  LTR390_CTRL_RES   = 0x10
+} ltr390_ctrl_t;
+
+/*!    @brief  sensor status register  */
+typedef enum {
+  LTR390_STATE_DATA     = 0x08,
+  LTR390_STATE_INTR     = 0x10,
+  LTR390_STATE_PWRON    = 0x20
+} ltr390_status_t;
+
+typedef enum {
+  LTR390_IR_EN      = 0x04,
+  LTR390_IR_ALS     = 0x10,
+  LTR390_IR_UVS     = 0x30
+} ltr390_interrupt_cfg_t;
 
 /*!    @brief  Sensor gain for UV or ALS  */
 typedef enum {
@@ -53,18 +69,31 @@ typedef enum {
   LTR390_GAIN_3,
   LTR390_GAIN_6,
   LTR390_GAIN_9,
-  LTR390_GAIN_18,
+  LTR390_GAIN_18
 } ltr390_gain_t;
 
 /*!    @brief Measurement resolution (higher res means slower reads!)  */
 typedef enum {
-  LTR390_RESOLUTION_20BIT,
+  LTR390_RESOLUTION_20BIT = 0,
   LTR390_RESOLUTION_19BIT,
   LTR390_RESOLUTION_18BIT,
   LTR390_RESOLUTION_17BIT,
   LTR390_RESOLUTION_16BIT,
-  LTR390_RESOLUTION_13BIT,
+  LTR390_RESOLUTION_13BIT
 } ltr390_resolution_t;
+
+
+
+/*!    @brief  Sensor measurement rate for UV or ALS  */
+typedef enum {
+  LTR390_RATE_25ms = 0,
+  LTR390_RATE_50ms,
+  LTR390_RATE_100ms,
+  LTR390_RATE_200ms,
+  LTR390_RATE_500ms,
+  LTR390_RATE_1000ms,
+  LTR390_RATE_2000ms
+} ltr390_rate_t;
 
 
 extern void initLTR390(ltr390_reg_t mode);

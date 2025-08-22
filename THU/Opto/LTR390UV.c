@@ -3,8 +3,8 @@
 //  File:           LTR390UV.c
 //  Author:         VSK
 //
-//  Created on      26. Nov 2019
-//  Modified        26. Nov. 2019
+//  Created on      Dez. 2024
+//  Modified        Dez. 2024
 //
 //*******************************************************************
 
